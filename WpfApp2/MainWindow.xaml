@@ -1,0 +1,69 @@
+<Window x:Class="WpfApp2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Лабораторная 3 — корень функции" Height="760" Width="1200"
+        MinHeight="580" MinWidth="850" WindowStartupLocation="CenterScreen"
+        Background="#F3F6FA">
+    <Grid Margin="14">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="14"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="#D5DDE7" BorderThickness="1"
+                CornerRadius="8" Background="#F7FAFE">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Margin="18">
+                    <TextBlock Text="Поиск корня f(x) = 0" FontSize="19" FontWeight="SemiBold"
+                               TextWrapping="Wrap" Margin="0,0,0,4"/>
+                    <TextBlock Text="Метод дихотомии" Foreground="#526276" Margin="0,0,0,22"/>
+
+                    <TextBlock Text="Левая граница a" Margin="0,0,0,5"/>
+                    <TextBox x:Name="AText" Text="0" Padding="8,6" Margin="0,0,0,14"
+                             TextChanged="Input_Changed"/>
+
+                    <TextBlock Text="Правая граница b" Margin="0,0,0,5"/>
+                    <TextBox x:Name="BText" Text="2" Padding="8,6" Margin="0,0,0,14"
+                             TextChanged="Input_Changed"/>
+
+                    <TextBlock Text="Знаков после запятой" Margin="0,0,0,5"/>
+                    <TextBox x:Name="EText" Text="3" Padding="8,6" Margin="0,0,0,14"
+                             TextChanged="Input_Changed"/>
+
+                    <TextBlock Text="Функция f(x)" Margin="0,0,0,5"/>
+                    <TextBox x:Name="FormulaText" Text="x^2+2*x-6" Padding="8,6"
+                             Margin="0,0,0,20" TextChanged="Input_Changed"/>
+
+                    <Button x:Name="PlotItem" Content="Построить график" Click="Plot_Click"
+                            Padding="8,10" Margin="0,0,0,8" FontWeight="SemiBold"/>
+                    <Button x:Name="SolveItem" Content="Найти корень" Click="Solve_Click"
+                            Padding="8,10" Margin="0,0,0,8" FontWeight="SemiBold"/>
+                    <Grid Margin="0,0,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="8"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" x:Name="ClearItem" Content="Очистить"
+                                Click="Clear_Click" Padding="6,7"/>
+                        <Button Grid.Column="2" x:Name="CancelItem" Content="Отменить"
+                                IsEnabled="False" Click="Cancel_Click" Padding="6,7"/>
+                    </Grid>
+
+                    <Separator Margin="0,0,0,16"/>
+                    <TextBlock Text="Ответ" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,8"/>
+                    <TextBlock x:Name="ResultText" FontSize="16" FontWeight="SemiBold"
+                               TextWrapping="Wrap" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="StatusText" Text="Введите данные и выберите действие. Для графика нужен интернет."
+                               TextWrapping="Wrap" Foreground="#334155"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+
+        <Border Grid.Column="2" BorderBrush="#D5DDE7" BorderThickness="1"
+                CornerRadius="8" Background="White" ClipToBounds="True">
+            <Image x:Name="PlotImage" Margin="6" Stretch="Uniform"/>
+        </Border>
+    </Grid>
+</Window>
