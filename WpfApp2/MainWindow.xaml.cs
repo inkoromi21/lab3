@@ -72,8 +72,7 @@ public partial class MainWindow : Window
                 var result = _finder.Find(input, samples, _operation!.Token);
                 _root = result.X;
                 string format = "F" + input.Digits.ToString(CultureInfo.InvariantCulture);
-                ResultText.Text = $"Корень: x ≈ {result.X.ToString(format, CultureInfo.CurrentCulture)}; " +
-                                  $"шагов: {result.Iterations}.";
+                ResultText.Text = $"Корень: x ≈ {result.X.ToString(format, CultureInfo.CurrentCulture)}";
                 StatusText.Foreground = Brushes.DarkSlateGray;
                 StatusText.Text = "Строю график…";
             }
